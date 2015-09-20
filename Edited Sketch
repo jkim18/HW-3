@@ -1,0 +1,23 @@
+background(0);
+size(500, 500);
+stroke(255);
+strokeWeight(4);
+  
+int x = 20;
+int x2 = 20;
+int y = 20;
+int y2 = 20;
+while (x < 480) {
+  line (x, y2, x2, y);
+    x = (x + 20);
+    y = (y + 20);
+  }
+  x = 480;
+  x2 = 480;
+  y = 480;
+  y2 = 480;
+  while (x > 0) {
+    line (x, y2, x2, y);
+    x = (x - 20);
+    y = (y - 20);
+}
