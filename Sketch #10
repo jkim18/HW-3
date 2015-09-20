@@ -1,0 +1,17 @@
+void setup() {
+  background(0);
+  size(500, 500);
+  frameRate(10);
+}
+
+int x = 0;
+
+void draw() {
+  while (x < 500) {
+    stroke(255);
+    line(x, random(0, height), x, 500);
+    x = (x + 10);
+  }
+}
+
+ 
