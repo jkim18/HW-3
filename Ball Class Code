@@ -1,0 +1,60 @@
+class Ball {
+  float x, y;
+  float vx, vy;
+  float radius;
+  color fillColor;
+
+  Ball() {
+    x = random(width);
+    y = random(height);
+    radius = random(2, 50);
+    vx = random(3, 15);
+    vy = random(2, 20);
+    fillColor = color(random(255), random(255), random(255));
+  }
+
+  void draw() {
+    noStroke();
+    fill(fillColor);
+    ellipse(x, y, radius*2, radius*2);
+  }
+
+  void move() {
+    x = x + vx;
+    y = y + vy;
+    if (x < radius || x > width-radius) {
+      vx = -vx;
+    }
+    if (y < radius || y > height-radius) {
+      vy = -vy;
+    }
+  }
+}
+
+Ball b;
+
+ArrayList<Ball> ballList;
+
+void setup() {
+  size(500, 500);
+  ballList = new ArrayList<Ball>();
+
+  b = new Ball();
+}
+
+void draw() {
+  background(255);
+  
+  for (Ball b : ballList) {
+    b.draw();
+    b.move();
+  }
+}
+
+void mousePressed() {
+  Ball b = new Ball();
+  b.x = mouseX;
+  b.y = mouseY;
+  ballList.add(b);
+}
+  
